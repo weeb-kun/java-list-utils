@@ -74,7 +74,7 @@ bintray {
         repo = 'weeb-kun'
         name = 'list-utils'
         licenses = ['Apache-2.0']
-        vscUrl = 'https://github.com/weeb-kun/java-list-utils'
+        vcsUrl = 'https://github.com/weeb-kun/java-list-utils'
         version {
             name = '1.0.0'
             vscTag = 'v1.0.0'
