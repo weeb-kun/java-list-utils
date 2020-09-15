@@ -77,7 +77,7 @@ bintray {
         vcsUrl = 'https://github.com/weeb-kun/java-list-utils'
         version {
             name = '1.0.0'
-            vscTag = 'v1.0.0'
+            vcsTag = 'v1.0.0'
         }
     }
 }
