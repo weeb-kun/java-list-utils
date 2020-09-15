@@ -34,4 +34,30 @@ It can be any `Predicate` that takes in the element and returns a boolean value.
 <br>
 Implementation of `zip()` function in python.
 Takes in multiple iterable collections and returns a zipped list.
-A zipped List is a list that contains many tuples that consist of elements from the source iterables at some index `i`.
+A zipped List is a list of tuples that consist of elements from the source iterables at some index `i`.
+e.g. in python we have `zip([1, 2, 3], ["a", "b", "c"])`, the result is `[(1, "a"), (2, "b"), (3, "c")]`,
+the same can be achieved in java by passing in iterables.
+e.g.
+```java
+import com.weebkun.ListUtil;import main.java.com.weebkun.ListUtil;import java.util.ArrayList;import java.util.List;
+
+class Test {
+
+public static void main(String[] args){
+    List<Integer> intList = new ArrayList<>();
+    intList.add(1);
+    intList.add(2);
+    intList.add(3);
+    
+    List<String> strList = new ArrayList<>();
+    strList.add("a");
+    strList.add("b");
+    strList.add("c");
+    
+    System.out.println(ListUtil.zip(intList, strList));
+    }
+}
+```
+
+## Documentation
+Docs can be found at https://javadoc.io/com.weebkun/list-utils
