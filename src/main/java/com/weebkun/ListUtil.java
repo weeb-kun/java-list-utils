@@ -113,6 +113,7 @@ public class ListUtil {
      * @param iterables the iterables to zip
      * @return the zipped list
      */
+    @SafeVarargs
     public static List<Tuple> zip(Collection<Object>... iterables){
         // loop through each collection and zip each element at the same index together into a Tuple
         // py: zip = zip([1, 2, 3, ...], ['a', 'b', 'c', ...], [...])

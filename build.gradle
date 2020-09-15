@@ -18,10 +18,79 @@ plugins {
 
 version = '1.0.0'
 
+publishing {
+    publications {
+        library(MavenPublication) {
+            pom {
+                name = 'list-utils'
+                description = 'util library for working with lists and list operations'
+                url = 'https://github.com/weeb-kun/java-list-utils'
+                licenses {
+                    license {
+                        name = 'Apache License, Version 2.0'
+                        url = 'http://apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'weebkun'
+                        name = 'weeb kun'
+                        email = '2002umpa@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/weeb-kun/java-list-utils.git'
+                    developerConnection = 'scm:git:https://github.com/weeb-kun/java-list-utils.git'
+                    url = 'scm:git:https://github.com/weeb-kun/java-list-utils'
+                }
+            }
+            from components.java
+            groupId = 'com.weebkun'
+            artifactId = 'list-utils'
+            version = '1.0.0'
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.library
+}
+
+bintray {
+    user = 'weebkun'
+    key = System.getenv('bintrayKey')
+    publications = ['library']
+    filesSpec {
+        from("${buildDir}/libs") {
+            include '*.jar.asc'
+        }
+        from("${buildDir}/publications/library") {
+            include 'pom-default.xml.asc'
+            rename 'pom-default.xml.asc', "${project.name}-${project.version}.pom.asc"
+        }
+        into "${project.group.replaceAll(/\./, '/')}/${project.name}/${project.version}"
+    }
+    pkg {
+        repo = 'weeb-kun'
+        name = 'list-utils'
+        licenses = ['Apache-2.0']
+        vscUrl = 'https://github.com/weeb-kun/java-list-utils'
+        version {
+            name = '1.0.0'
+            vscTag = 'v1.0.0'
+        }
+    }
+}
+
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 dependencies {
