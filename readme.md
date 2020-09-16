@@ -7,10 +7,11 @@ simple library for working with lists and list-like sequences.
 ```groovy
 repositories {
     jcenter()
+    // maven central is fine also
 }
 
 dependencies {
-    implementation 'com.weebkun:list-utils:1.0.0'
+    implementation 'com.github.weeb-kun:list-utils:1.0.0'
 }
 ```
 
@@ -18,7 +19,7 @@ dependencies {
 
 ```xml
 <dependency>
-  <groupId>com.weebkun</groupId>
+  <groupId>com.github.weeb-kun</groupId>
   <artifactId>list-utils</artifactId>
   <version>1.0.0</version>
   <type>pom</type>

@@ -1,8 +1,8 @@
-package main.java.com.weebkun;
+package com.weebkun;
 
-import main.java.com.weebkun.enumerate.Enumerator;
-import main.java.com.weebkun.enumerate.Item;
-import main.java.com.weebkun.tuples.Tuple;
+import com.weebkun.enumerate.Enumerator;
+import com.weebkun.enumerate.Item;
+import com.weebkun.tuples.Tuple;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,9 +13,9 @@ import java.util.function.Predicate;
 
 /**
  * util class for working with lists and collections.
- * @see main.java.com.weebkun.enumerate
- * @see main.java.com.weebkun.utils
- * @see main.java.com.weebkun.tuples
+ * @see com.weebkun.enumerate
+ * @see com.weebkun.utils
+ * @see com.weebkun.tuples
  */
 public class ListUtil {
 

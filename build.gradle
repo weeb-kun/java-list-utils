@@ -54,6 +54,10 @@ publishing {
         maven {
             name = 'ossrh'
             url = version.endsWith("snapshot") ? 'https://oss.sonatype.org/content/repositories/snapshots' : 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+            credentials {
+                username = 'weebkun'
+                password = System.getenv('sonatypePw')
+            }
         }
     }
 }

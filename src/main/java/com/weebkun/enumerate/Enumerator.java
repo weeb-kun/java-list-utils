@@ -1,4 +1,4 @@
-package main.java.com.weebkun.enumerate;
+package com.weebkun.enumerate;
 
 import java.util.Iterator;
 

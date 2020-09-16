@@ -1,4 +1,4 @@
-package main.java.com.weebkun.enumerate;
+package com.weebkun.enumerate;
 
 /**
  * represents a pair of (index, element) in enumerated lists.

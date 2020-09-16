@@ -1,6 +1,6 @@
-package main.java.com.weebkun.tuples;
+package com.weebkun.tuples;
 
-import main.java.com.weebkun.utils.TupleIterator;
+import com.weebkun.utils.TupleIterator;
 
 import java.util.Arrays;
 import java.util.Collection;
