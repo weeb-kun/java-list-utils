@@ -84,4 +84,4 @@ public static void main(String[] args){
 ```
 
 ## Documentation
-Docs can be found at https://javadoc.io/com.weebkun/list-utils
+Docs can be found at https://javadoc.io/com.github.weeb-kun/list-utils
