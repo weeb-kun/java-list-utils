@@ -1,6 +1,30 @@
 # list-utils library
 simple library for working with lists and list-like sequences.
 
+## Installation
+### gradle
+
+```groovy
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.weebkun:list-utils:1.0.0'
+}
+```
+
+### maven
+
+```xml
+<dependency>
+  <groupId>com.weebkun</groupId>
+  <artifactId>list-utils</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
+
 ## ListUtil class
 main class of this whole library.
 this class provides the static methods necessary to use this library.
