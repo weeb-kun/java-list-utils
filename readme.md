@@ -30,8 +30,7 @@ dependencies {
 main class of this whole library.
 this class provides the static methods necessary to use this library.
 
-- enumerate
-<br>
+- enumerate<br>
 Enumerates through a collection and returns an iterable `Enumerator<T>`,
 That when iterated through, yields `Item<T>`s, which contains an element and the index of that element in the original collection.
     - `static <T> Iterable<Item<T>> enumerate(Iterable<T>, int);`
@@ -39,8 +38,7 @@ That when iterated through, yields `Item<T>`s, which contains an element and the
 
 <br>
 
-- comprehend
-<br>
+- comprehend<br>
 Java implementation of python's list comprehension.
 4 overloads are provided, depending on usage requirements.
 <br>
@@ -55,16 +53,19 @@ It can be any `Predicate` that takes in the element and returns a boolean value.
     - `static <T> List<Object> comprehend(Function<T, Object> expression, Iterable<T> list);`
     - `static <T> List<Object> comprehend(Iterable<T> list);`
 
-- zip
-<br>
+- zip<br>
 Implementation of `zip()` function in python.
 Takes in multiple iterable collections and returns a zipped list.
 A zipped List is a list of tuples that consist of elements from the source iterables at some index `i`.
 e.g. in python we have `zip([1, 2, 3], ["a", "b", "c"])`, the result is `[(1, "a"), (2, "b"), (3, "c")]`,
 the same can be achieved in java by passing in iterables.
 e.g.
+
 ```java
-import com.weebkun.ListUtil;import main.java.com.weebkun.ListUtil;import java.util.ArrayList;import java.util.List;
+import com.weebkun.ListUtil;
+import main.java.com.weebkun.ListUtil;
+import java.util.ArrayList;
+import java.util.List;
 
 class Test {
 
