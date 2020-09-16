@@ -40,12 +40,10 @@ That when iterated through, yields `Item<T>`s, which contains an element and the
 
 - comprehend<br>
 Java implementation of python's list comprehension.
-4 overloads are provided, depending on usage requirements.
-<br>
+4 overloads are provided, depending on usage requirements.<br>
 The `expression` argument is the expression applied to each element in the argument `list`.
 The expression can be any lambda function that takes in the element and returns any object.
-e.g. `x -> x * 2` or `x -> x % 2 == 0 ? "even" : "odd"`, etc
-<br>
+e.g. `x -> x * 2` or `x -> x % 2 == 0 ? "even" : "odd"`, etc<br>
 The `condition` argument is the condition to filter the elements in the `list` with.
 It can be any `Predicate` that takes in the element and returns a boolean value.
     - `static <T> List<Object> comprehend(Function<T, Object> expression, Iterable<T> list, Predicate<T> condition);`
