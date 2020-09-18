@@ -1,7 +1,22 @@
+/*
+   Copyright 2020 weebkun
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 package com.weebkun;
 
 import com.weebkun.enumerate.Enumerator;
-import com.weebkun.enumerate.Item;
 import com.weebkun.tuples.Tuple;
 
 import java.util.ArrayList;
@@ -27,7 +42,7 @@ public class ListUtil {
      * @return the enumerator object
      * @see Enumerator
      */
-    public static <T> Iterable<Item<T>> enumerate(Iterable<T> iter, int start){
+    public static <T> Enumerator<T> enumerate(Iterable<T> iter, int start){
         return new Enumerator<>(iter, start);
     }
 
@@ -35,11 +50,34 @@ public class ListUtil {
      * returns an {@link Enumerator} for a specified iterable. equivalent to {@code enumerate(iter, 0)}.
      * @param iter the iterable
      * @param <T> the type of the elements in {@code iter}
-     * @return the enumerator
+     * @return the enumerator object
      * @see Enumerator
      */
-    public static <T> Iterable<Item<T>> enumerate(Iterable<T> iter){
+    public static <T> Enumerator<T> enumerate(Iterable<T> iter){
         return new Enumerator<>(iter, 0);
+    }
+
+    /**
+     * overload that is passed an array instead of a collection.
+     * @param array the array
+     * @param start the start index
+     * @param <T> the type of elements in array
+     * @return the Enumerator object
+     * @see Enumerator
+     */
+    public static <T> Enumerator<T> enumerate(T[] array, int start) {
+        return new Enumerator<>(array, start);
+    }
+
+    /**
+     * overload for enumerate(T[] array, int start) that uses default value 0 for {@code start}.
+     * @param array the array
+     * @param <T> the type of element in array
+     * @return the Enumerator object
+     * @see Enumerator
+     */
+    public static <T> Enumerator<T> enumerate(T[] array) {
+        return new Enumerator<T>(array, 0);
     }
 
     /**
