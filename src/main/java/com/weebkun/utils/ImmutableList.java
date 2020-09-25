@@ -38,8 +38,6 @@ public class ImmutableList<T> extends ArrayList<T> implements List<T> {
         this.size = collection.size();
     }
 
-
-
     /**
      * creates an ImmutableList from an array.
      * @param array the array
@@ -153,4 +151,15 @@ public class ImmutableList<T> extends ArrayList<T> implements List<T> {
     public T remove(int index) {
         throw new UnsupportedOperationException("this list is immutable.");
     }
+
+    /**
+     * does a shallow copy of this {@code ImmutableList}.
+     * @return the cloned list
+     */
+    @Override
+    public Object clone() {
+        return new ImmutableList<T>(this);
+    }
+
+    // todo implement deep copy method
 }

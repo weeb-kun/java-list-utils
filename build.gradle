@@ -15,7 +15,7 @@ plugins {
 }
 
 group = 'com.github.weeb-kun'
-version = '1.0.0'
+version = '1.1.0-snapshot'
 
 publishing {
     publications {
@@ -46,14 +46,14 @@ publishing {
             from components.java
             groupId = 'com.github.weeb-kun'
             artifactId = 'list-utils'
-            version = '1.0.0'
+            version = '1.1.0-snapshot'
         }
     }
 
     repositories {
         maven {
             name = 'ossrh'
-            url = version.endsWith("snapshot") ? 'https://oss.sonatype.org/content/repositories/snapshots' : 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+            url = version.contains("snapshot") ? 'https://oss.sonatype.org/content/repositories/snapshots' : 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
             credentials {
                 username = 'weebkun'
                 password = System.getenv('sonatypePw')
@@ -86,8 +86,8 @@ bintray {
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/weeb-kun/java-list-utils'
         version {
-            name = '1.0.0'
-            vcsTag = 'v1.0.0'
+            name = '1.1.0-snapshot'
+            vcsTag = 'v1.1.0-snapshot'
         }
     }
 }
