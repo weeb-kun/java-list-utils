@@ -25,25 +25,54 @@ public class NTree<T> implements Tree<T>, Iterable<T> {
     private int size;
     private GenericNode<T> root;
 
+    /**
+     * default constructor for {@code NTree}.
+     * sets size to 0.
+     */
     public NTree(){
         this.size = 0;
     }
 
+    /**
+     * constructs an {@code NTree} with a given value.
+     * @param value the value
+     */
+    public NTree(T value){
+        this.root = new GenericNode<>(value);
+        this.size = 1;
+    }
+
+    /**
+     * constructs an {@code NTree} with a given root node.
+     * @param root the root
+     */
     public NTree(GenericNode<T> root) {
         this.root = root;
         this.size = root.size();
     }
 
+    /**
+     * returns the size of this tree.
+     * @return the size
+     */
     @Override
     public int size() {
         return this.size;
     }
 
+    /**
+     * checks if this tree is empty. returns true if so.
+     * @return true of empty
+     */
     @Override
     public boolean isEmpty() {
         return this.size == 0;
     }
 
+    /**
+     * returns the root of this tree.
+     * @return the root
+     */
     @Override
     public Node<T> getRoot() {
         return this.root;

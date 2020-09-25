@@ -97,7 +97,7 @@ public class BinaryTree<T> implements Tree<T>, Iterable<T> {
 
     /**
      * returns the root node of this tree.
-     * @return
+     * @return the root
      */
     @Override
     public Node<T> getRoot() {
