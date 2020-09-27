@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.weeb-kun:list-utils:1.0.0'
+    implementation 'com.github.weeb-kun:list-utils:$version'
 }
 ```
 
@@ -21,7 +21,7 @@ dependencies {
 <dependency>
   <groupId>com.github.weeb-kun</groupId>
   <artifactId>list-utils</artifactId>
-  <version>1.0.0</version>
+  <version>$version</version>
   <type>pom</type>
 </dependency>
 ```
