@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * tree data structure for binary searching.
- * implements {@link Tree<Integer>} for easier implementation.
+ * implements {@link Tree} for easier implementation.
  *
  * <p>
  * this implementation allows for duplicate values, the duplicate value will be inserted as the left child if the existing node is a leaf,
