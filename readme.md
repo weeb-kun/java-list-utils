@@ -83,5 +83,34 @@ public static void main(String[] args){
 }
 ```
 
+## ImmutableList
+<br>
+
+A `List` that is immutable. i.e. it cannot be modified.
+If a mutating method is called, an `UnsupportedOperationException` will be thrown.
+<br>
+
+## Trees
+
+The package `com.weebkun.tree` provides some interfaces and classes for working with trees.
+All trees implement `Iterable<T>`, so they can be used in an enhanced for loop.
+Check out the [docs](https://javadoc.io/doc/com.github.weeb-kun/list-utils/latest/com/weebkun/tree/package-summary.html) for more details.
+
+- `interface Tree<T>`<br>
+this interface provides the ADT for implementations of trees.
+
+- `interface Node<T>`<br>
+this interface provides the ADT for nodes,
+which is the data contained in a tree.
+
+- `class BinaryTree<T>` and `class BinaryNode<T>`<br>
+these classes represent a binary tree and the nodes in a binary tree.
+
+- `class NTree<t>` and `class GenericNode<T>`<br>
+these classes represent a generic tree, where each node can have multiple children.
+
+- `class BinarySearchTree`<br>
+this class represents a binary search tree with elements of type `int`.
+
 ## Documentation
 Docs can be found at https://javadoc.io/doc/com.github.weeb-kun/list-utils
