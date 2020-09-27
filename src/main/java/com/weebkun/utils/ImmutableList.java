@@ -16,18 +16,24 @@
 
 package com.weebkun.utils;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.*;
 
 /**
  * Immutable list implementation. similar to {@link com.weebkun.tuples.Tuple} but a more direct implementation of {@link List}.
  * uses an internal array to store the elements, similar to {@link java.util.ArrayList}.
- * @param <T> the type of element to store in this list
+ * all mutating operations throw {@link UnsupportedOperationException}.
+ * @param <T> the type of element to store in this list. elements must implement {@code Cloneable}
+ * @see com.weebkun.tuples.Tuple
+ * @see ArrayList
+ * @see UnsupportedOperationException
  */
 @SuppressWarnings("unchecked")
-public class ImmutableList<T> extends ArrayList<T> implements List<T> {
+public class ImmutableList<T extends Cloneable> extends ArrayList<T> implements List<T> {
 
-    private int size;
-    private T[] array;
+    private final int size;
+    private final T[] array;
 
     /**
      * creates an ImmutableList from an existing collection.
@@ -40,10 +46,11 @@ public class ImmutableList<T> extends ArrayList<T> implements List<T> {
 
     /**
      * creates an ImmutableList from an array.
+     * calls Arrays.copyOf() method to create a copy of the passed in array.
      * @param array the array
      */
     public ImmutableList(T[] array){
-        this.array = array;
+        this.array = Arrays.copyOf(array, array.length);
         this.size = array.length;
     }
 
@@ -93,37 +100,37 @@ public class ImmutableList<T> extends ArrayList<T> implements List<T> {
     }
 
     @Override
-    public boolean add(T t) {
+    public boolean add(T t) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public boolean remove(Object o) {
+    public boolean remove(Object o) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public boolean addAll(Collection<? extends T> c) {
+    public boolean addAll(Collection<? extends T> c) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public boolean addAll(int index, Collection<? extends T> c) {
+    public boolean addAll(int index, Collection<? extends T> c) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public boolean removeAll(Collection<?> c) {
+    public boolean removeAll(Collection<?> c) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public boolean retainAll(Collection<?> c) {
+    public boolean retainAll(Collection<?> c) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public void clear() {
+    public void clear() throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
@@ -138,17 +145,17 @@ public class ImmutableList<T> extends ArrayList<T> implements List<T> {
     }
 
     @Override
-    public T set(int index, T element) {
+    public T set(int index, T element) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public void add(int index, T element) {
+    public void add(int index, T element) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
     @Override
-    public T remove(int index) {
+    public T remove(int index) throws UnsupportedOperationException{
         throw new UnsupportedOperationException("this list is immutable.");
     }
 
@@ -157,9 +164,26 @@ public class ImmutableList<T> extends ArrayList<T> implements List<T> {
      * @return the cloned list
      */
     @Override
-    public Object clone() {
-        return new ImmutableList<T>(this);
+    public ImmutableList<T> clone() {
+        return new ImmutableList<>(this);
     }
 
-    // todo implement deep copy method
+    /**
+     * does a deep copy of this list. returns a new list with each element having a new reference.
+     * @return the cloned list
+     */
+    public ImmutableList<T> deepClone(){
+        // intermediate list to store the new references
+        List<T> inter = new ArrayList<>();
+        for(T elem : this) {
+            try {
+                // clone each element using reflection
+                Method clone = elem.getClass().getMethod("clone");
+                inter.add((T) clone.invoke(elem));
+            } catch (NoSuchMethodException | SecurityException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return new ImmutableList<>(inter);
+    }
 }

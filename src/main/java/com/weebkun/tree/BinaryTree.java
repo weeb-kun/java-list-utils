@@ -21,6 +21,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * A data structure representing a binary tree.
+ *
+ * <p>
+ *     a binary tree is a tree where each node can only have up to 2 children.
+ * </p>
+ * @param <T> the type of elements contained in this tree
+ */
 public class BinaryTree<T> implements Tree<T>, Iterable<T> {
 
     private int size;
@@ -159,9 +167,9 @@ public class BinaryTree<T> implements Tree<T>, Iterable<T> {
             BinaryNode<T> node = queue.pop();
             result.add(node.getValue());
             // enqueue left child
-            if(node.visitLeft() != null) result.add(node.visitLeft().getValue());
+            if(node.visitLeft() != null) queue.addFirst(node.visitLeft());
             //enqueue right child
-            if(node.visitRight() != null) result.add(node.visitRight().getValue());
+            if(node.visitRight() != null) queue.addFirst(node.visitRight());
         }
         return result;
     }

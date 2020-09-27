@@ -38,6 +38,10 @@ public interface Node<T> {
      */
     int size();
 
+    /**
+     * returns the tree with this node as root.
+     * @return a tree with this node as root
+     */
     Tree<T> subtree();
 
     /**

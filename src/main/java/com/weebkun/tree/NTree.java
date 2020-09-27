@@ -16,10 +16,12 @@
 
 package com.weebkun.tree;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
+/**
+ * A data structure representing a generic tree where nodes can contain many children.
+ * @param <T> the type of elements contained in this tree
+ */
 public class NTree<T> implements Tree<T>, Iterable<T> {
 
     private int size;
@@ -116,6 +118,29 @@ public class NTree<T> implements Tree<T>, Iterable<T> {
             // visit the children of this node
             if(node.hasChildren()){
                 result.addAll(traverse(node.getChildren()));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * traverse this tree breadth first and returns a list of the elements in order.
+     * @return list of the elements in order
+     */
+    public List<T> traverseBreadthFirst() {
+        List<T> result = new ArrayList<>();
+        // visit root
+        result.add(this.root.getValue());
+        // create queue
+        Deque<Node<T>> queue = new ArrayDeque<>();
+        // enqueue root
+        queue.addFirst(this.root);
+        while(queue.size() > 0){
+            Node<T> node = queue.pop();
+            result.add(node.getValue());
+            // enqueue children starting from the left
+            for(Node<T> child : this.root.getChildren()) {
+                if(child != null) queue.addFirst(child);
             }
         }
         return result;
