@@ -35,6 +35,17 @@ public class BinarySearchTree extends BinaryTree<Integer> implements Tree<Intege
         }
     }
 
+    /**
+     * constructs a BST from a given array.
+     * @param array the array
+     */
+    public BinarySearchTree(int[] array){
+        this.root = new BinaryNode<>(array[0]);
+        for(int i = 1; i < array.length; i++){
+            insert(this.root, array[i]);
+        }
+    }
+
     private void insert(BinaryNode<Integer> node, int value) {
         if(value <= node.getValue()){
             // check if subtree has left child
