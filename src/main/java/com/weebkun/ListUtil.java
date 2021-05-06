@@ -186,4 +186,20 @@ public class ListUtil {
         }
         return zipped;
     }
+
+    public static <T, R> List<R> map(List<T> list, Function<T, R> transform) {
+        ArrayList<R> result = new ArrayList<>();
+        for(T elem : list) {
+            result.add(transform.apply(elem));
+        }
+        return result;
+    }
+
+    public static <T> List<T> filter(Collection<T> list, Predicate<T> predicate) {
+        ArrayList<T> result = new ArrayList<>();
+        for (T elem : list) {
+            if(predicate.test(elem)) result.add(elem);
+        }
+        return result;
+    }
 }

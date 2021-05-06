@@ -59,6 +59,14 @@ publishing {
                 password = System.getenv('sonatypePw')
             }
         }
+        maven {
+            name = 'nexus'
+            url = version.endsWith("SNAPSHOT") ? "https://nexus.pcchin.com/repository/maven-snapshots/" : "https://nexus.pcchin.com/repository/maven-releases/"
+            credentials {
+                username = "weebkun"
+                password = System.getenv("nexusPw")
+            }
+        }
     }
 }
 
